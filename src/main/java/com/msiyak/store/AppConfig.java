@@ -19,7 +19,7 @@ public class AppConfig {
     public PaymentService paypal(){
         return new PayPalPaymentService();
     }
-    @Bean
+    @Bean //If we create this bean using lazy initialization then we need to add lazy annotation(@Lazy) here
     public OrderService orderService(){
         if(paymentGateway.equals("stripe"))
             return new OrderService(stripe());
