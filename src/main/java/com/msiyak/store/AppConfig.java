@@ -21,7 +21,6 @@ public class AppConfig {
         return new PayPalPaymentService();
     }
     @Bean //If we create this bean using lazy initialization then we need to add lazy annotation(@Lazy) here
-    @Scope("prototype")
     public OrderService orderService(){
         if(paymentGateway.equals("stripe"))
             return new OrderService(stripe());
